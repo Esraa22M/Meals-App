@@ -1,7 +1,18 @@
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 export const MealDetailsSubTitle = ({ children }) => {
-	return <Text style={styles.subtitle}>{children}</Text>;
+	return (
+		<View style={styles.subtitleContainer}>
+			<Text style={styles.subtitle}>{children}</Text>
+		</View>
+	);
 };
 const styles = StyleSheet.create({
-	subtitle: { fontSize: 18, fontWeight: "bold" },
+	subtitleContainer: { borderBottomColor: "black", borderBottomWidth: 2 },
+	subtitle: {
+		fontSize: 18,
+		fontWeight: "bold",
+		margin: 6,
+		textAlign: "center",
+		padding: 6,
+	},
 });
