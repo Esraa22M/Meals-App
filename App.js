@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar } from "react-native";
+import { Text, StatusBar } from "react-native";
 import { CategoriesScreen } from "./src/screens/CategoryScreen/CategoryScreen.screens";
 import { MealsOverViewScreen } from "./src/screens/MealsOverviewScreen/MealsOverViewScreen.screens";
 import { NavigationContainer } from "@react-navigation/native";
@@ -28,12 +28,12 @@ export default function App() {
 					<stack.Screen
 						name="MealsOverview"
 						component={MealsOverViewScreen}
-						// options={({ route, navigation }) => {
-						// 	const catId = route.params.categoryId
-						// 	return {title:catId};
-						// }}
+					// options={({ route, navigation }) => {
+					// 	const catId = route.params.categoryId
+					// 	return {title:catId};
+					// }}
 					/>
-					<stack.Screen name="MealDetail" component={MealDetails}/>
+					<stack.Screen name="MealDetail" component={MealDetails} options={{ headerRight: () => <Text>esraa</Text> }} />
 				</stack.Navigator>
 			</NavigationContainer>
 		</>
