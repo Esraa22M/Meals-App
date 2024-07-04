@@ -1,6 +1,6 @@
 import { View, Pressable, Text, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { MealDetailsInfo } from "../../screens/MealDetails/MealDetails/MealDetailsInfo.components";
+import { MealDetailsInfo } from "../../../screens/MealDetails/MealDetails/MealDetailsInfo.components";
 import { styles } from "./MealIteam.styles";
 //m     //M
 export const MealIteam = ({ item }) => {

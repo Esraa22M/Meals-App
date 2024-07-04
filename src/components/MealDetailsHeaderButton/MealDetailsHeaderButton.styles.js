@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
 		borderRaduis: 22,
 		opacity:0.5,
 		overflow:'hidden',
-		backgroundColor: "#644117",
 		justifyContent: "center",
 		alignItems: "center",
 	},
