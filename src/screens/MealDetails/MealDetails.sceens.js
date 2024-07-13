@@ -5,20 +5,30 @@ import { MealDetailsHeaderButton } from "../../components/MealDetailsHeaderButto
 import { MealDetailsInfo } from "./MealDetails/MealDetailsInfo.components";
 import { MealDetailsList } from "./MealDetailsList/MealDetailsList.compontents";
 import { MealDetailsSubTitle } from "./MealDetailsSubTitle/MealDetailsSubTitle.components";
-import { FavouriteContext } from "../../store/context/favorites.context";
+// import { FavouriteContext } from "../../store/context/favorites.context";
 import { styles } from "./MealDetails.styles";
+import { useSelector , useDispatch} from "react-redux";
+import { addFavouriteMealsIds, removeFavourite } from "../../store/redux/favourite";
 //m     //M
 export const MealDetails = ({ route, navigation }) => {
 	const mealId = route.params.mealId;
+	const dispatch = useDispatch()
 	const selectedMeal = MEALS.find((meal) => meal.id === mealId);
-	const { mealsIds, removeFavourite, addFavouriteMealsIds } =
-		useContext(FavouriteContext);
-	const mealsIsFav = mealsIds.includes(mealId);
+	// const { mealsIds, removeFavourite, addFavouriteMealsIds } =
+	// useContext(FavouriteContext);
+	// const mealsIsFav = mealsIds.includes(mealId);
+	const favouriteMealsId = useSelector(
+		(state) => state.favouriteReducer.mealsIds
+	);
+	const mealsIsFav = favouriteMealsId.includes(mealId);
+
 	const changeFavouriteStatusHandler = () => {
-		console.log('here')
+		console.log("here");
 		if (mealsIsFav) {
-			removeFavourite(mealId);
-		}else{addFavouriteMealsIds(mealId)}
+			dispatch(removeFavourite({id:mealId}))
+		} else {
+			dispatch(addFavouriteMealsIds({ id: mealId }))
+		}
 	};
 	useLayoutEffect(() => {
 		navigation.setOptions({

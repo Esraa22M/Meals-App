@@ -1,5 +1,4 @@
-import { Text, StatusBar } from "react-native";
-import { CategoriesScreen } from "./src/screens/CategoryScreen/CategoryScreen.screens";
+import {  StatusBar } from "react-native";
 import { MealsOverViewScreen } from "./src/screens/MealsOverviewScreen/MealsOverViewScreen.screens";
 import { NavigationContainer } from "@react-navigation/native";
 //m     //M
@@ -7,12 +6,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { MealDetails } from "./src/screens/MealDetails/MealDetails.sceens";
 import { DrawerNavigation } from "./src/Navigation/DrawerNavigation/Drawer.navigations";
 import { FavouriteContextProvider } from "./src/store/context/favorites.context";
+import { Provider } from "react-redux";
+import { store } from "./src/store/redux/store";
 const stack = createStackNavigator();
 export default function App() {
 		return (
 		<>
 			<StatusBar style="light" />
-			<FavouriteContextProvider>
+			<Provider store={store}>
 				<NavigationContainer>
 					<stack.Navigator
 						initialRouteName="CategoriesScreen"
@@ -43,7 +44,7 @@ export default function App() {
 						/>
 					</stack.Navigator>
 				</NavigationContainer>
-			</FavouriteContextProvider>
+			</Provider>
 		</>
 	);
 }
